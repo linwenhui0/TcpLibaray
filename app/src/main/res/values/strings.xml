@@ -1,0 +1,9 @@
+<resources>
+    <string name="success">成功</string>
+    <string name="empty">没有返回数据</string>
+    <string name="error_unknown_host">未知主机异常</string>
+    <string name="error_unknown">未知异常</string>
+    <string name="error_socket_timeout">连接超时</string>
+    <string name="error_connection_exception">连接主机异常</string>
+    <string name="error_socket_lost">连接断开</string>
+</resources>
