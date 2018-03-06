@@ -60,18 +60,18 @@ public class ReadRunnable extends BaseRunnable<DataRead> {
                 baos.reset();
                 int len;
                 while ((len = is.read(buffer)) > 0) {
-                    Logger.i(TAG, "[接收读取数据长度] " + len);
+                    Logger.getInstance().i(TAG, "[接收读取数据长度] " + len);
                     baos.write(buffer, 0, len);
                     if (len < buffer.length)
                         break;
                 }
                 byte[] data = baos.toByteArray();
                 if (data != null && data.length > 0) {
-                    Logger.d(TAG, "[接收数据]，", data, Logger.TYPE.ASCII);
-                    Logger.d(TAG, "[接收源数据]，", data, Logger.TYPE.CODE16);
+                    Logger.getInstance().d(TAG, "[接收数据]，", data, Logger.TYPE.ASCII);
+                    Logger.getInstance().d(TAG, "[接收源数据]，", data, Logger.TYPE.CODE16);
                     sendMessage(MSG_SUCCESS, StatusCode.SUCCESS, data, null);
                 }
-                Logger.d(TAG, "[关闭Socket]");
+                Logger.getInstance().d(TAG, "[关闭Socket]");
                 baos.close();
 
                 try {

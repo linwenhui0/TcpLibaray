@@ -36,16 +36,16 @@ public class ConnectRunnable extends BaseRunnable<ConnectHandler> {
 
     @Override
     public void run() {
-        Logger.d(TAG, "[地址] ip = " + mSocketModel.getIp() + " port = " + mSocketModel.getPort());
+        Logger.getInstance().d(TAG, "[地址] ip = " + mSocketModel.getIp() + " port = " + mSocketModel.getPort());
         InetSocketAddress address = new InetSocketAddress(mSocketModel.getIp(), mSocketModel.getPort());
         try {
             mSocket.setReceiveBufferSize(65535);
-            Logger.d(TAG, " setReceiveBufferSize(65535) ");
+            Logger.getInstance().d(TAG, " setReceiveBufferSize(65535) ");
             mSocket.setSendBufferSize(4096);
-            Logger.d(TAG, " setSendBufferSize(4096) ");
-            Logger.d(TAG, "[超时时间]" + mSocketModel.getTimeout());
+            Logger.getInstance().d(TAG, " setSendBufferSize(4096) ");
+            Logger.getInstance().d(TAG, "[超时时间]" + mSocketModel.getTimeout());
             mSocket.connect(address, mSocketModel.getTimeout());
-            Logger.d(TAG, "[连接成功]");
+            Logger.getInstance().d(TAG, "[连接成功]");
             sendMessage(MSG_SUCCESS, StatusCode.SUCCESS, null, null);
         } catch (IOException e) {
             e.printStackTrace();

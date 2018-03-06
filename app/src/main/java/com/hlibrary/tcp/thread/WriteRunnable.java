@@ -42,8 +42,8 @@ public class WriteRunnable extends BaseRunnable<DataSend> {
         }
         Socket socket = socketWeakReference.get();
         try {
-            Logger.d(TAG, "[发送数据]，", data, Logger.TYPE.ASCII);
-            Logger.d(TAG, "[发送16进制数据]，", data, Logger.TYPE.CODE16);
+            Logger.getInstance().d(TAG, "[发送数据]，", data, Logger.TYPE.ASCII);
+            Logger.getInstance().d(TAG, "[发送16进制数据]，", data, Logger.TYPE.CODE16);
             BufferedOutputStream os = new BufferedOutputStream(socket.getOutputStream());
             os.write(data);
             os.flush();
